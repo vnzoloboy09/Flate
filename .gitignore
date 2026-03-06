@@ -1,0 +1,10 @@
+.kotlin
+
+/build
+/.gradle
+/bin
+*.class
+*.log
+.classpath
+.project
+.settings/
