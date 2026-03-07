@@ -1,5 +1,6 @@
 .kotlin
 
+/app/build
 /build
 /.gradle
 /bin
