@@ -34,7 +34,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.Flate"
+    mainClass = "org.flate.Flate"
 }
 
 tasks.named<Test>("test") {
