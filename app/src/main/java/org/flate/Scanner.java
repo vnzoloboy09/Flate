@@ -192,7 +192,7 @@ class Scanner {
 			if(peek() == '\n') {
 				line++;
 			}
-			System.out.print(advance());
+			advance();
 		}
 
 		if(isAtEnd()) {
