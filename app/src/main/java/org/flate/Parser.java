@@ -13,6 +13,15 @@ class Parser {
 		this.tokens = tokens;
 	}
 
+	Expr parse() {
+		try {
+			return expression();
+		}
+		catch (ParseError error) {
+			return null;
+		}
+	}
+
 	private Expr expression() {
 		return equality();
 	}
@@ -90,7 +99,7 @@ class Parser {
 			return new Expr.Grouping(expr);
 		}
 
-		return null;
+		throw error(peek(), "Expected expression.");
 	}
 
 	private boolean match(TokenType... types) {
@@ -142,6 +151,33 @@ class Parser {
 	private ParseError error(Token token, String message) {
 		Flate.error(token, message);
 		return new ParseError();
+	}
+
+	private void synchronize() {
+		advance();
+
+		while(!isAtEnd()) {
+			if(previous().type == SEMICOLON) {
+				return;
+			}
+
+			switch (peek().type) {
+				case CLASS:
+				case FUNC:
+				case VAR:
+				case FOR:
+				case RETURN:
+				case WHILE:
+				case IF:
+				case PRINT:
+					break;
+
+				default:
+					break;
+			}
+
+			advance();
+		}
 	}
 }
 

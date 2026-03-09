@@ -1,8 +1,1 @@
-var language = "Flate"
-
-/* prjkjintfooasds 
-sd /* fhsdkfhasdkjfhksa
-]asdfh asd
-asd
-sadf*/ */asdf
-var a
+2 == 3 + 5
